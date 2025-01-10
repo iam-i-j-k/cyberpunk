@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyberpunk Navigation</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+    }
+    .main {
+      width: 100%;
+    }
+    nav {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 0.75rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      z-index: 50;
+    }
+    @media (min-width: 768px) {
+      nav {
+        padding: 0.75rem 5rem;
+      }
+    }
+    .logo {
+      width: 100px;
+      filter: saturate(150%) contrast(125%);
+      mix-blend-mode: screen;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    @media (min-width: 768px) {
+      .nav-links {
+        gap: 1.25rem;
+      }
+    }
+    .nav-link {
+      position: relative;
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s;
+      overflow: hidden;
+    }
+    .nav-link:hover {
+      color: #60A5FA;
+    }
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #60A5FA;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease-out;
+    }
+    .nav-link:hover::before {
+      transform: scaleX(1);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: #60A5FA;
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.3s;
+    }
+    .nav-link:hover::after {
+      opacity: 0.1;
+    }
+    .background {
+      width: 100%;
+      height: 150vh;
+      overflow: hidden;
+      position: relative;
+    }
+    .background-image {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      filter: saturate(150%) contrast(125%);
+      mix-blend-mode: screen;
+    }
+    .glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 13rem;
+      height: 13rem;
+      border-radius: 50%;
+      background-color: #2563EB;
+      filter: blur(24px);
+      opacity: 0.5;
+      z-index: -1;
+    }
+    .content {
+      height: 100vh;
+      width: 100%;
+      position: relative;
+      background-color: #888;
+    }
+    .gradient {
+      width: 100%;
+      height: 13rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateY(-50%);
+      background: linear-gradient(to bottom, black, #888);
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <nav>
+      <img class="logo" src="https://preview.redd.it/3d-rendered-the-cyberpunk-logo-using-blender-v0-khopj82wqee91.png?width=640&crop=smart&auto=webp&s=8c31445d1ee6f6993331b7d7d11bad170086631c" alt="Cyberpunk Logo">
+      <div class="nav-links">
+        <a href="#" class="nav-link">Games</a>
+        <a href="#" class="nav-link">News</a>
+        <a href="#" class="nav-link">Community</a>
+        <a href="#" class="nav-link">Shop</a>
+        <a href="#" class="nav-link">Support</a>
+      </div>
+    </nav>
+    <div class="background">
+      <img class="background-image" src="https://preview.redd.it/3d-rendered-the-cyberpunk-logo-using-blender-v0-khopj82wqee91.png?width=640&crop=smart&auto=webp&s=8c31445d1ee6f6993331b7d7d11bad170086631c" alt="Cyberpunk Background">
+      <div class="glow"></div>
+      <canvas id="canvas"></canvas>
+    </div>
+    <div class="content">
+      <div class="gradient"></div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
