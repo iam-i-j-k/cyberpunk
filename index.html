@@ -28,11 +28,12 @@
       backdrop-filter: blur(8px);
       z-index: 50;
     }
-    @media (min-width: 768px) {
-      nav {
-        padding: 0.75rem 5rem;
+    @media (max-width: 1024px){
+      .nav-link{
+        display: none;
       }
     }
+    
     .logo {
       width: 100px;
       filter: saturate(150%) contrast(125%);
@@ -42,11 +43,6 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-    }
-    @media (min-width: 768px) {
-      .nav-links {
-        gap: 1.25rem;
-      }
     }
     .nav-link {
       position: relative;
@@ -138,7 +134,7 @@
   <div class="main">
     <nav>
       <img class="logo" src="https://preview.redd.it/3d-rendered-the-cyberpunk-logo-using-blender-v0-khopj82wqee91.png?width=640&crop=smart&auto=webp&s=8c31445d1ee6f6993331b7d7d11bad170086631c" alt="Cyberpunk Logo">
-      <div class="md:hidden nav-links">
+      <div class="nav-links">
         <a href="#" class="nav-link">Games</a>
         <a href="#" class="nav-link">News</a>
         <a href="#" class="nav-link">Community</a>
